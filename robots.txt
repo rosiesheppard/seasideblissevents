@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seasideblissevents.co.uk/sitemap.xml
