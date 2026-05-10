@@ -1015,3 +1015,28 @@ footer { background: var(--navy); color: #FAF7F2; padding: 5rem 8% 2rem; }
 .contact-info-section,
 .enquiry-section { /* inherits .section */ }
 
+#main-nav .desktop-nav a,
+#main-nav .desktop-nav a:link,
+#main-nav .desktop-nav a:visited,
+#main-nav .desktop-nav a:hover,
+#main-nav .desktop-nav a:active {
+  color: #FAF7F2 !important;
+  text-decoration: none !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+#main-nav .desktop-nav a:first-child,
+#main-nav .desktop-nav a:first-child:link,
+#main-nav .desktop-nav a:first-child:visited {
+  color: #C9A84C !important;
+}
+
+#main-nav .desktop-nav a:last-child {
+  background: #C9A84C !important;
+  color: #1C2B3A !important;
+  padding: 0.6rem 1.5rem !important;
+}
