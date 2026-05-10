@@ -3,230 +3,334 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seaside Bliss Events — Coastal Wedding & Event Planning</title>
-  <meta name="description" content="Seaside Bliss Events creates unforgettable coastal weddings and celebrations across the UK. Bespoke planning, breathtaking settings, memories for a lifetime." />
-  <meta name="keywords" content="coastal wedding planner, UK wedding, seaside events, beach wedding, event planning, celebrations" />
-  <meta property="og:title" content="Seaside Bliss Events" />
-  <meta property="og:description" content="Unforgettable coastal weddings and celebrations across the UK." />
-  <meta property="og:image" content="images/og-image.png" />
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://seasideblissevents.co.uk/" />
-
-  <!-- Fonts -->
+  <title>Seaside Bliss Events — Where Every Occasion Meets the Sea</title>
+  <meta name="description" content="A unique beachside hut venue for weddings, birthdays, anniversaries and kids' parties. We handle everything — you just celebrate." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127796;</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #FAF7F2; font-family: 'Lato', sans-serif; }
+    .reveal-section { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-section.revealed { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .desktop-nav { display: none !important; }
+      .burger-btn { display: flex !important; }
+    }
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; grid-template-rows: repeat(3, 200px) !important; }
+    }
+    @media (max-width: 700px) {
+      .form-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ── NAVIGATION ── -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="Seaside Bliss Events home">
-        <img src="images/logo.svg" alt="Seaside Bliss Events" width="100" height="28" />
+<!-- NAV -->
+<nav id="main-nav" style="position:fixed;top:0;left:0;right:0;z-index:100;background:transparent;transition:background 0.4s ease,backdrop-filter 0.4s ease;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 8%;display:flex;align-items:center;justify-content:space-between;height:72px;">
+    <a href="index.html" style="text-decoration:none;display:flex;flex-direction:column;gap:1px;">
+      <span style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.5rem;line-height:1;">Seaside Bliss Events</span>
+
+    </a>
+    <div class="desktop-nav" style="display:flex;gap:2.5rem;align-items:center;">
+      <a href="index.html" style="font-family:'Lato',sans-serif;color:#C9A84C;text-decoration:none;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:400;border-bottom:1px solid #C9A84C;padding-bottom:2px;">Home</a>
+      <a href="weddings.html" style="font-family:'Lato',sans-serif;color:#FAF7F2;text-decoration:none;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:400;border-bottom:1px solid transparent;padding-bottom:2px;transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#FAF7F2'">Weddings</a>
+      <a href="celebrations.html" style="font-family:'Lato',sans-serif;color:#FAF7F2;text-decoration:none;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:400;border-bottom:1px solid transparent;padding-bottom:2px;transition:color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#FAF7F2'">Celebrations</a>
+      <a href="contact.html" style="font-family:'Lato',sans-serif;background:#C9A84C;color:#1C2B3A;text-decoration:none;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;padding:0.6rem 1.5rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Enquire</a>
+    </div>
+    <button class="burger-btn" onclick="toggleMenu()" style="background:none;border:none;cursor:pointer;padding:4px;display:none;" aria-label="Menu">
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div class="bline" style="width:24px;height:1.5px;background:#FAF7F2;transition:all 0.3s;"></div>
+        <div class="bline" style="width:24px;height:1.5px;background:#FAF7F2;transition:all 0.3s;"></div>
+        <div class="bline" style="width:24px;height:1.5px;background:#FAF7F2;transition:all 0.3s;"></div>
+      </div>
+    </button>
+  </div>
+  <div id="mobile-menu" style="display:none;background:rgba(28,43,58,0.98);border-top:1px solid rgba(201,168,76,0.2);padding:1.5rem 8%;">
+    <a href="index.html" style="display:block;font-family:'Lato',sans-serif;color:#FAF7F2;text-decoration:none;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 0;border-bottom:1px solid rgba(201,168,76,0.1);">Home</a>
+    <a href="weddings.html" style="display:block;font-family:'Lato',sans-serif;color:#FAF7F2;text-decoration:none;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 0;border-bottom:1px solid rgba(201,168,76,0.1);">Weddings</a>
+    <a href="celebrations.html" style="display:block;font-family:'Lato',sans-serif;color:#FAF7F2;text-decoration:none;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 0;border-bottom:1px solid rgba(201,168,76,0.1);">Celebrations</a>
+    <a href="contact.html" style="display:block;font-family:'Lato',sans-serif;color:#FAF7F2;text-decoration:none;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 0;">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="position:relative;height:100vh;min-height:640px;overflow:hidden;">
+  <img src="images/hut_decorated.png" alt="Seaside Bliss Events" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(28,43,58,0.45) 0%, rgba(28,43,58,0.65) 60%, rgba(28,43,58,0.85) 100%);"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 8%;padding-top:72px;">
+    <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:0.5rem;opacity:0.95;">Seaside Bliss Events</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;color:#FAF7F2;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem;max-width:820px;">
+      Where Every Occasion Meets the Sea
+    </h1>
+    <div style="width:60px;height:2px;background:#C9A84C;margin:0 auto 1.5rem;"></div>
+    <p style="color:#E8DDD0;font-size:clamp(1rem,2vw,1.2rem);line-height:1.8;margin-bottom:2.5rem;max-width:580px;font-weight:300;">
+      A unique beachside hut venue for weddings, birthdays, anniversaries and kids' parties. We handle everything — you just celebrate.
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <a href="contact.html" style="background:#C9A84C;color:#1C2B3A;padding:1rem 2.5rem;font-weight:700;font-size:0.9rem;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        Start Planning
       </a>
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="weddings.html">Weddings</a></li>
-        <li><a href="celebrations.html">Celebrations</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="contact.html" class="btn btn-gold nav-cta">Enquire Now</a></li>
-      </ul>
+      <a href="#services" style="border:1px solid rgba(250,247,242,0.6);color:#FAF7F2;padding:1rem 2.5rem;font-weight:300;font-size:0.9rem;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.2s;" onmouseover="this.style.background='rgba(250,247,242,0.08)'" onmouseout="this.style.background='transparent'">
+        Explore Events
+      </a>
     </div>
-  </nav>
+  </div>
+  <div style="position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;">
+    <div style="width:1px;height:50px;background:linear-gradient(to bottom, transparent, #C9A84C);"></div>
+    <p style="color:#C9A84C;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;">Scroll</p>
+  </div>
+</section>
 
-  <!-- ── HERO ── -->
-  <section class="hero" style="background-image: url('images/hut_decorated.png');" aria-label="Hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-script">Where every moment becomes</p>
-      <h1>A Memory By The Sea</h1>
-      <p class="hero-sub">Bespoke coastal weddings &amp; celebrations crafted with elegance, warmth, and a touch of seaside magic.</p>
-      <div class="hero-actions">
-        <a href="weddings.html" class="btn btn-gold">Explore Weddings</a>
-        <a href="celebrations.html" class="btn btn-outline">View Celebrations</a>
-      </div>
-    </div>
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ── ABOUT ── -->
-  <section class="section about-section" id="about">
-    <div class="container about-grid">
-      <div class="about-image reveal">
-        <img src="images/hut_bright.png" alt="Our coastal event space, warmly lit and elegantly styled" loading="lazy" />
-      </div>
-      <div class="about-text reveal">
-        <p class="section-label">Our Story</p>
-        <h2>Coastal Magic, Crafted for You</h2>
-        <p>We believe the sea has a way of making moments feel eternal. At Seaside Bliss Events, we bring together breathtaking coastal settings, meticulous planning, and a deeply personal touch to create celebrations that linger in the heart long after the tide has turned.</p>
-        <p>From intimate vow exchanges on windswept shores to grand wedding receptions in sun-drenched venues, every event we create is a reflection of the people at its heart.</p>
-        <a href="contact.html" class="btn btn-gold" style="margin-top:1.5rem;">Start Planning</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SERVICES ── -->
-  <section class="section services-section" id="services" style="background:var(--cream);">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Our Services</h2>
-        <p class="section-sub">Everything you need for a flawless coastal celebration — from first enquiry to final farewell.</p>
-      </div>
-      <div class="grid-4">
-        <div class="card reveal">
-          <div class="card-icon" aria-hidden="true">💍</div>
-          <h3>Wedding Planning</h3>
-          <p>Full-service bespoke planning for your coastal wedding day. Venue sourcing, styling, supplier coordination and beyond.</p>
-          <a href="weddings.html" class="card-link">Learn more →</a>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon" aria-hidden="true">🎉</div>
-          <h3>Celebrations</h3>
-          <p>Birthdays, anniversaries, milestone parties — we make every occasion feel extraordinary against a coastal backdrop.</p>
-          <a href="celebrations.html" class="card-link">Learn more →</a>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon" aria-hidden="true">🌸</div>
-          <h3>Floral Design</h3>
-          <p>Bespoke seasonal floral arrangements — from driftwood centrepieces to cascading bridal bouquets inspired by the coast.</p>
-          <a href="contact.html" class="card-link">Enquire →</a>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon" aria-hidden="true">📸</div>
-          <h3>Photo &amp; Film</h3>
-          <p>Trusted partner photographers and videographers who know how to capture the golden hour by the sea like no one else.</p>
-          <a href="contact.html" class="card-link">Enquire →</a>
+<!-- ABOUT -->
+<section style="padding:7rem 8%;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:5rem;align-items:center;">
+    <div class="reveal-section">
+      <div style="position:relative;">
+        <img src="images/hut.png" alt="Our Venue" style="width:100%;display:block;object-fit:cover;aspect-ratio:4/3;" />
+        <div style="position:absolute;bottom:-1.5rem;right:-1.5rem;background:;padding:1.5rem 2rem;z-index:1;">
         </div>
       </div>
     </div>
-  </section>
+    <div class="reveal-section" style="transition-delay:150ms;">
+      <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.6rem;margin-bottom:0.5rem;">About Us</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;line-height:1.2;margin-bottom:1rem;">
+        A Venue Unlike Anywhere Else
+      </h2>
+      <div style="width:60px;height:2px;background:#C9A84C;margin:1rem 0;"></div>
+      <p style="color:#555;line-height:1.9;font-weight:300;margin-bottom:1.2rem;">
+        Nestled right by the sea, Seaside Bliss Events is a one-of-a-kind beachside hut venue built for celebrations that matter. Warm, characterful, and full of charm — it's the backdrop that makes your event stand out from every other your guests have attended.
+      </p>
+      <p style="color:#555;line-height:1.9;font-weight:300;margin-bottom:2rem;">
+        From grand floral wedding ceremonies to joyful kids' birthday parties, we bring the magic — and handle every detail along the way. Catering, décor, entertainment, photography — all taken care of.
+      </p>
+      <a href="celebrations.html" style="display:inline-block;border:1px solid #1C2B3A;color:#1C2B3A;padding:0.8rem 2rem;font-weight:700;font-size:0.8rem;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s;" onmouseover="this.style.background='#1C2B3A';this.style.color='#FAF7F2'" onmouseout="this.style.background='transparent';this.style.color='#1C2B3A'">
+        Our Events
+      </a>
+    </div>
+  </div>
+</section>
 
-  <!-- ── GALLERY STRIP ── -->
-  <section class="gallery-strip" aria-label="Photo gallery">
-    <div class="gallery-strip-inner">
-      <div class="gallery-strip-item">
-        <img src="images/wedding_venue.png" alt="Elegant coastal wedding venue" loading="lazy" />
-      </div>
-      <div class="gallery-strip-item">
-        <img src="images/wedding_kiss.png" alt="Couple sharing their first kiss" loading="lazy" />
-      </div>
-      <div class="gallery-strip-item">
-        <img src="images/wedding_vows.png" alt="Wedding vows ceremony by the sea" loading="lazy" />
-      </div>
-      <div class="gallery-strip-item">
-        <img src="images/celebration_birthday_adult.png" alt="Elegant birthday celebration" loading="lazy" />
-      </div>
-      <div class="gallery-strip-item">
-        <img src="images/celebration_anniversary.png" alt="Romantic anniversary celebration" loading="lazy" />
+<!-- SERVICES -->
+<section id="services" style="background:#F5F0E8;padding:7rem 8%;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal-section">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.6rem;margin-bottom:0.5rem;">What We Do</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:600;">Every Occasion, One Perfect Venue</h2>
+        <div style="width:60px;height:2px;background:#C9A84C;margin:1rem auto;"></div>
       </div>
     </div>
-  </section>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;">
 
-  <!-- ── TESTIMONIALS ── -->
-  <section class="section testimonials-section" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Kind Words</p>
-        <h2>What Our Couples Say</h2>
+      <div class="reveal-section" style="transition-delay:0ms;">
+        <a href="weddings.html" style="text-decoration:none;display:block;overflow:hidden;background:#fff;box-shadow:0 2px 20px rgba(28,43,58,0.07);transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(28,43,58,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 20px rgba(28,43,58,0.07)'">
+          <div style="position:relative;overflow:hidden;height:220px;">
+            <img src="images/wedding_venue.png" alt="Weddings" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          </div>
+          <div style="padding:1.8rem;border-top:3px solid #E8B4B8;">
+            <h3 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:1.5rem;font-weight:600;margin-bottom:0.75rem;">Weddings</h3>
+            <p style="color:#666;line-height:1.7;font-size:0.9rem;font-weight:300;margin-bottom:1.2rem;">Say 'I do' beneath a floral arch with the sea as your witness. Ceremony, reception — all in one magical setting.</p>
+            <span style="color:#1C2B3A;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">Learn more &rarr;</span>
+          </div>
+        </a>
       </div>
-      <div class="testimonials-grid">
-        <blockquote class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"Seaside Bliss turned our dream into reality. Every detail was perfect, from the driftwood table centrepieces to the sunset ceremony timing. We couldn't have asked for more."</p>
-          <footer>
-            <strong>Emily &amp; James</strong>
-            <span>Wedding, September 2024</span>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"The team handled absolutely everything with such grace. On the day, we were completely relaxed because we knew we were in the best hands. Utterly magical."</p>
-          <footer>
-            <strong>Sophie &amp; Daniel</strong>
-            <span>Wedding, June 2024</span>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"Our 30th anniversary party was beyond anything we imagined. The attention to detail and genuine care they showed made it a night we'll never forget."</p>
-          <footer>
-            <strong>Catherine &amp; Michael</strong>
-            <span>Anniversary Party, August 2024</span>
-          </footer>
-        </blockquote>
-        <blockquote class="testimonial-card reveal">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>"From the very first enquiry, we felt looked after. The seaside backdrop, the flowers, the food — everything was immaculate. Truly a five-star experience."</p>
-          <footer>
-            <strong>Natalie &amp; Tom</strong>
-            <span>Wedding, May 2024</span>
-          </footer>
-        </blockquote>
+
+      <div class="reveal-section" style="transition-delay:80ms;">
+        <a href="celebrations.html" style="text-decoration:none;display:block;overflow:hidden;background:#fff;box-shadow:0 2px 20px rgba(28,43,58,0.07);transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(28,43,58,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 20px rgba(28,43,58,0.07)'">
+          <div style="position:relative;overflow:hidden;height:220px;">
+            <img src="images/celebration_birthday_adult.png" alt="Birthdays" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          </div>
+          <div style="padding:1.8rem;border-top:3px solid #C9A84C;">
+            <h3 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:1.5rem;font-weight:600;margin-bottom:0.75rem;">Birthdays</h3>
+            <p style="color:#666;line-height:1.7;font-size:0.9rem;font-weight:300;margin-bottom:1.2rem;">From intimate gatherings to full celebrations — mark the big day in style by the water.</p>
+            <span style="color:#C9A84C;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">Learn more &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal-section" style="transition-delay:160ms;">
+        <a href="celebrations.html" style="text-decoration:none;display:block;overflow:hidden;background:#fff;box-shadow:0 2px 20px rgba(28,43,58,0.07);transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(28,43,58,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 20px rgba(28,43,58,0.07)'">
+          <div style="position:relative;overflow:hidden;height:220px;">
+            <img src="images/celebration_kids_party.png" alt="Kids' Parties" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          </div>
+          <div style="padding:1.8rem;border-top:3px solid #8FAF8F;">
+            <h3 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:1.5rem;font-weight:600;margin-bottom:0.75rem;">Kids' Parties</h3>
+            <p style="color:#666;line-height:1.7;font-size:0.9rem;font-weight:300;margin-bottom:1.2rem;">Face painting, amusements, catering — a magical beach party your little one will never forget.</p>
+            <span style="color:#1C2B3A;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">Learn more &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal-section" style="transition-delay:240ms;">
+        <a href="celebrations.html" style="text-decoration:none;display:block;overflow:hidden;background:#fff;box-shadow:0 2px 20px rgba(28,43,58,0.07);transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 40px rgba(28,43,58,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 20px rgba(28,43,58,0.07)'">
+          <div style="position:relative;overflow:hidden;height:220px;">
+            <img src="images/celebration_anniversary.png" alt="Anniversaries" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          </div>
+          <div style="padding:1.8rem;border-top:3px solid #E8B4B8;">
+            <h3 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:1.5rem;font-weight:600;margin-bottom:0.75rem;">Anniversaries</h3>
+            <p style="color:#666;line-height:1.7;font-size:0.9rem;font-weight:300;margin-bottom:1.2rem;">Romantic seaside dining, tailored décor, and the sea at golden hour. Because love deserves the best.</p>
+            <span style="color:#1C2B3A;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">Learn more &rarr;</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="padding:0;">
+  <div class="reveal-section">
+    <div style="text-align:center;padding:5rem 8% 3rem;">
+      <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.6rem;margin-bottom:0.5rem;">The Experience</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:600;">Moments That Last Forever</h2>
+      <div style="width:60px;height:2px;background:#C9A84C;margin:1rem auto;"></div>
+    </div>
+  </div>
+  <div class="gallery-grid" style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,260px);">
+    <div style="overflow:hidden;position:relative;"><img src="images/wedding_venue.png" alt="Gallery 1" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;position:relative;"><img src="images/celebration_birthday_adult.png" alt="Gallery 2" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;position:relative;"><img src="images/wedding_vows.png" alt="Gallery 3" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;position:relative;"><img src="images/celebration_kids_party.png" alt="Gallery 4" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;position:relative;"><img src="images/celebration_anniversary.png" alt="Gallery 5" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" /></div>
+    <div style="overflow:hidden;position:relative;"><img src="images/wedding_kiss.png" alt="Gallery 6" style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" /></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:#1C2B3A;padding:7rem 8%;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="reveal-section">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.6rem;margin-bottom:0.5rem;">Kind Words</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;color:#FAF7F2;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:600;">What Our Guests Say</h2>
+        <div style="width:60px;height:2px;background:#C9A84C;margin:1rem auto;"></div>
       </div>
     </div>
-  </section>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;">
 
-  <!-- ── CTA BANNER ── -->
-  <section class="cta-banner" style="background-image: url('images/wedding_cta.png');" aria-label="Contact call to action">
-    <div class="cta-banner-overlay"></div>
-    <div class="cta-banner-content reveal">
-      <p class="hero-script" style="font-size:2rem;color:var(--gold);">Your story begins here</p>
-      <h2>Let's Create Something Beautiful</h2>
-      <p>Ready to start planning? Get in touch today and let's bring your vision to life.</p>
-      <a href="contact.html" class="btn btn-gold">Send an Enquiry</a>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="images/logo.svg" alt="Seaside Bliss Events" width="140" height="42" />
-        <p>Crafting unforgettable coastal celebrations across the UK. Every event a love story. Every moment by design.</p>
+      <div class="reveal-section" style="transition-delay:0ms;">
+        <div style="border-top:2px solid #C9A84C;padding:2rem;background:rgba(250,247,242,0.05);">
+          <p style="color:#C9A84C;font-size:2rem;line-height:1;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;">"</p>
+          <p style="color:#E8DDD0;line-height:1.8;font-style:italic;font-weight:300;margin-bottom:1.5rem;font-size:0.95rem;">We had our daughter's 7th birthday here and it was absolutely perfect. She still talks about it every week.</p>
+          <p style="font-family:'Cormorant Garamond',serif;color:#C9A84C;font-weight:600;">— Sarah M., Kent</p>
         </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="weddings.html">Weddings</a></li>
-          <li><a href="celebrations.html">Celebrations</a></li>
-          <li><a href="contact.html">Contact &amp; Enquiry</a></li>
-        </ul>
       </div>
-      <div class="footer-links">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="weddings.html">Full Wedding Planning</a></li>
-          <li><a href="weddings.html">On-the-Day Coordination</a></li>
-          <li><a href="celebrations.html">Milestone Birthdays</a></li>
-          <li><a href="celebrations.html">Anniversary Parties</a></li>
-          <li><a href="celebrations.html">Children's Parties</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Get in Touch</h4>
-        <p><a href="mailto:info@seasideblissevents.co.uk">info@seasideblissevents.co.uk</a></p>
-        <p><a href="tel:+447391173788">+44 7391 173 788</a></p>
-        <p>The Seaside Bliss Events Hut, The Pier, Central Parade, Herne Bay CT6 5JN</p>
-        <a href="contact.html" class="btn btn-gold" style="margin-top:1rem;font-size:0.85rem;padding:0.6rem 1.4rem;">Enquire Now</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Seaside Bliss Events. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
-    </div>
-  </footer>
 
-  <script src="js/main.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+      <div class="reveal-section" style="transition-delay:80ms;">
+        <div style="border-top:2px solid #C9A84C;padding:2rem;background:rgba(250,247,242,0.05);">
+          <p style="color:#C9A84C;font-size:2rem;line-height:1;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;">"</p>
+          <p style="color:#E8DDD0;line-height:1.8;font-style:italic;font-weight:300;margin-bottom:1.5rem;font-size:0.95rem;">Our 25th anniversary dinner was beyond what we imagined. Stunning views, incredible food, and the team handled everything.</p>
+          <p style="font-family:'Cormorant Garamond',serif;color:#C9A84C;font-weight:600;">— David &amp; Claire T.</p>
+        </div>
+      </div>
+
+      <div class="reveal-section" style="transition-delay:160ms;">
+        <div style="border-top:2px solid #C9A84C;padding:2rem;background:rgba(250,247,242,0.05);">
+          <p style="color:#C9A84C;font-size:2rem;line-height:1;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;">"</p>
+          <p style="color:#E8DDD0;line-height:1.8;font-style:italic;font-weight:300;margin-bottom:1.5rem;font-size:0.95rem;">The best birthday party I've ever thrown. All my friends couldn't believe the venue — right by the sea!</p>
+          <p style="font-family:'Cormorant Garamond',serif;color:#C9A84C;font-weight:600;">— James K.</p>
+        </div>
+      </div>
+
+      <div class="reveal-section" style="transition-delay:240ms;">
+        <div style="border-top:2px solid #C9A84C;padding:2rem;background:rgba(250,247,242,0.05);">
+          <p style="color:#C9A84C;font-size:2rem;line-height:1;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;">"</p>
+          <p style="color:#E8DDD0;line-height:1.8;font-style:italic;font-weight:300;margin-bottom:1.5rem;font-size:0.95rem;">Our wedding was everything we dreamed of. The floral arch, the sea view, the whole day — absolutely perfect.</p>
+          <p style="font-family:'Cormorant Garamond',serif;color:#C9A84C;font-weight:600;">— Emily &amp; Tom R., Sussex</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" style="padding:7rem 8%;background:#FAF7F2;">
+  <div style="max-width:700px;margin:0 auto;">
+    <div class="reveal-section">
+      <div style="text-align:center;margin-bottom:3.5rem;">
+        <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.6rem;margin-bottom:0.5rem;">Get in Touch</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;color:#1C2B3A;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;">Start Planning Your Event</h2>
+        <div style="width:60px;height:2px;background:#C9A84C;margin:1rem auto;"></div>
+        <p style="color:#666;line-height:1.8;font-weight:300;">Tell us about your occasion and we'll get back to you within 24 hours.</p>
+      </div>
+    </div>
+    <div class="reveal-section" style="transition-delay:100ms;">
+      <form action="https://formspree.io/f/mkoyqyzb" method="POST" style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#888;font-weight:700;">Your Name</label>
+            <input type="text" name="name" required style="border:none;border-bottom:1px solid #C9A84C;background:transparent;padding:0.75rem 0;font-size:1rem;color:#1C2B3A;outline:none;font-family:'Lato',sans-serif;" />
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;">
+            <label style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#888;font-weight:700;">Email Address</label>
+            <input type="email" name="email" required style="border:none;border-bottom:1px solid #C9A84C;background:transparent;padding:0.75rem 0;font-size:1rem;color:#1C2B3A;outline:none;font-family:'Lato',sans-serif;" />
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.4rem;">
+          <label style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#888;font-weight:700;">Message</label>
+          <textarea name="message" rows="5" placeholder="Tell us about your occasion, preferred date, number of guests..." style="border:none;border-bottom:1px solid #C9A84C;background:transparent;padding:0.75rem 0;font-size:1rem;color:#1C2B3A;outline:none;font-family:'Lato',sans-serif;resize:none;"></textarea>
+        </div>
+        <button type="submit" style="background:#1C2B3A;color:#FAF7F2;padding:1.1rem 2.5rem;border:none;cursor:pointer;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;font-family:'Lato',sans-serif;margin-top:0.5rem;transition:background 0.2s;align-self:flex-start;" onmouseover="this.style.background='#C9A84C';this.style.color='#1C2B3A'" onmouseout="this.style.background='#1C2B3A';this.style.color='#FAF7F2'">
+          Send Enquiry
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#111D27;padding:3rem 8%;text-align:center;">
+  <p style="font-family:'Great Vibes',cursive;color:#C9A84C;font-size:1.6rem;margin-bottom:0.3rem;">Seaside Bliss Events</p>
+  <p style="color:#8FAF8F;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem;">Bringing dreams to life</p>
+  <div style="display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+    <a href="index.html" style="color:#E8DDD0;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Home</a>
+    <a href="weddings.html" style="color:#E8DDD0;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Weddings</a>
+    <a href="celebrations.html" style="color:#E8DDD0;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Celebrations</a>
+    <a href="contact.html" style="color:#E8DDD0;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Contact</a>
+    <a href="privacy.html" style="color:#E8DDD0;text-decoration:none;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">Privacy Policy</a>
+  </div>
+  <div style="margin-bottom:1.5rem;">
+    <a href="mailto:info@seasideblissevents.co.uk" style="color:#C9A84C;text-decoration:none;font-size:0.85rem;margin:0 1rem;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">info@seasideblissevents.co.uk</a>
+    <span style="color:#555;">|</span>
+    <a href="tel:+447391173788" style="color:#C9A84C;text-decoration:none;font-size:0.85rem;margin:0 1rem;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">07391173788</a>
+  </div>
+  <p style="color:#555;font-size:0.75rem;">&copy; <span id="yr"></span> Seaside Bliss Events </p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
+
+  // Nav scroll behaviour
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(28,43,58,0.97)';
+      nav.style.backdropFilter = 'blur(8px)';
+      nav.style.borderBottom = '1px solid rgba(201,168,76,0.2)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.borderBottom = 'none';
+    }
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
 </body>
 </html>

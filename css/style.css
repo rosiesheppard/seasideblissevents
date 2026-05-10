@@ -3,6 +3,8 @@
    ============================================================ */
 
 /* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap');
+
 /* --- CSS Variables --- */
 :root {
   --ivory:  #FAF7F2;
@@ -1013,37 +1015,3 @@ footer { background: var(--navy); color: #FAF7F2; padding: 5rem 8% 2rem; }
 .contact-info-section,
 .enquiry-section { /* inherits .section */ }
 
-
-
-/* Form submission status */
-.form-status {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-.form-status.success {
-  color: #2f6b3f;
-}
-.form-status.error {
-  color: #a4382d;
-}
-button:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-/* Legal/privacy page */
-.legal-content {
-  max-width: 860px;
-  margin: 0 auto;
-}
-.legal-content h2 {
-  margin-top: 2rem;
-}
-.legal-content p, .legal-content li {
-  color: var(--text-light);
-  line-height: 1.8;
-}
-.legal-content ul {
-  margin: 1rem 0 1rem 1.25rem;
-}
